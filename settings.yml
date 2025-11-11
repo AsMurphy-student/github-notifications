@@ -1,0 +1,24 @@
+---
+strategy: polling
+no_screen_padding: 'no'
+dark_mode: 'no'
+static_data: ''
+polling_verb: get
+polling_url: https://api.github.com/notifications?all={{ showall }}
+polling_headers: authorization=token {{ token }}
+polling_body: ''
+id: 179266
+custom_fields:
+- keyname: token
+  field_type: password
+  name: Access Token
+  description: Your personal (classic) access token
+- keyname: showall
+  field_type: select
+  options:
+  - 'true'
+  - 'false'
+  name: Show All
+  description: Show all notifications including read notifications
+name: Github Notifications
+refresh_interval: 15

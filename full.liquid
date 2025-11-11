@@ -1,0 +1,35 @@
+<div class="layout">
+  {% unless data == empty %}
+  <div class="grid grid--cols-2" data-overflow="true" data-overflow-counter="true">
+    {% if data == empty %}
+    <span class="title">All caught up!</span>
+    {% endif %}
+    {% for message in data %}
+    <div class="item">
+      <div class="meta">
+        <span class="index">{{ forloop.index }}</span>
+      </div>
+      <div class="content">
+        <span class="title title--small">{{ message.repository.full_name }}</span>
+        <span class="description">{{ message.subject.title }}</span>
+        <div class="flex gap--xsmall">
+          <span class="label label--small label--underline">{{ message.subject.type }}</span>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <span class="title">All caught up!</span>
+  {% endunless %}
+</div>
+
+<div class="title_bar">
+  <img class="image" src="https://usetrmnl.com/images/plugins/trmnl--render.svg">
+  <span class="title">{{ trmnl.plugin_settings.instance_name }}</span>
+  {% if trmnl.plugin_settings.custom_fields_values.showall == 'true' %}
+  <span class="instance">All Notifications</span>
+  {% else %}
+  <span class="instance">Unread Notifications</span>
+  {% endif %}
+</div>
