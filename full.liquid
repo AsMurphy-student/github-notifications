@@ -1,28 +1,27 @@
-<div class="layout">
-  {% unless data == empty %}
-  <div class="grid grid--cols-2" data-overflow="true" data-overflow-counter="true">
-    {% if data == empty %}
-    <span class="title">All caught up!</span>
-    {% endif %}
+{% unless data == empty %}
+<table class="table table--indexed" data-table-limit="true">
+  <thead>
+    <tr>
+      <th><span class="title title--small"></span></th>
+      <th><span class="title title--small">Title</span></th>
+      <th><span class="title title--small">Repo</span></th>
+      <th><span class="title title--small">Type</span></th>
+    </tr>
+  </thead>
+  <tbody>
     {% for message in data %}
-    <div class="item">
-      <div class="meta">
-        <span class="index">{{ forloop.index }}</span>
-      </div>
-      <div class="content">
-        <span class="title title--small">{{ message.repository.full_name }}</span>
-        <span class="description">{{ message.subject.title }}</span>
-        <div class="flex gap--xsmall">
-          <span class="label label--small label--underline">{{ message.subject.type }}</span>
-        </div>
-      </div>
-    </div>
+    <tr>
+      <td><span class="meta"><span class="index">{{ forloop.index }}</span></span></td>
+      <td><span class="label">{{ message.subject.title }}</span></td>
+      <td><span class="label label--small">{{ message.repository.full_name }}</span></td>
+      <td><span class="label label--small">{{ message.subject.type }}</span></td>
+    </tr>
     {% endfor %}
-  </div>
-  {% else %}
-  <span class="title">All caught up!</span>
-  {% endunless %}
-</div>
+  </tbody>
+</table>
+{% else %}
+<span class="title">All caught up!</span>
+{% endunless %}
 
 <div class="title_bar">
   <img class="image" src="https://usetrmnl.com/images/plugins/trmnl--render.svg">

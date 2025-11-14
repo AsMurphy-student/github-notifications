@@ -20,5 +20,10 @@ custom_fields:
   - 'false'
   name: Show All
   description: Show all notifications including read notifications
+- keyname: doesnt_matter
+  name: About This Plugin
+  field_type: author_bio
+  description: Github Notifications to display either all, or unread, notifications.
+  github_url: https://github.com/AsMurphy-student/github-notifications
 name: Github Notifications
 refresh_interval: 15
