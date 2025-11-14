@@ -1,28 +1,32 @@
-{% unless data == empty %}
-<table class="table table--indexed" data-table-limit="true">
-  <thead>
-    <tr>
-      <th><span class="title title--small"></span></th>
-      <th><span class="title title--small">Title</span></th>
-      <th><span class="title title--small">Repo</span></th>
-      <th><span class="title title--small">Type</span></th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for message in data %}
-    <tr>
-      <td><span class="meta"><span class="index">{{ forloop.index }}</span></span></td>
-      <td><span class="label">{{ message.subject.title }}</span></td>
-      <td><span class="label label--small">{{ message.repository.full_name }}</span></td>
-      <td><span class="label label--small">{{ message.subject.type }}</span></td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-{% else %}
-<span class="title">All caught up!</span>
-{% endunless %}
-
+<div class="layout layout--top">
+  {% unless data == empty %}
+  <table class="table table--indexed table--small" data-table-limit="true">
+    <thead>
+      <tr>
+        <th><span class="title title--small"></span></th>
+        <th><span class="title title--small">Title</span></th>
+        <th><span class="title title--small">Repo</span></th>
+        <th><span class="title title--small">Type</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for message in data %}
+      <tr>
+        <td><span class="meta"><span class="index">{{ forloop.index }}</span></span></td>
+        <td><span class="label">{{ message.subject.title }}</span></td>
+        <td><span class="label label--small">{{ message.repository.full_name }}</span></td>
+        <td><span class="label label--small">{{ message.subject.type }}</span></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="layout layout--col">
+    <span class="title">All caught up!</span>
+  </div>
+  {% endunless %}
+</div>
+  
 <div class="title_bar">
   <img class="image" src="https://usetrmnl.com/images/plugins/trmnl--render.svg">
   <span class="title">{{ trmnl.plugin_settings.instance_name }}</span>
