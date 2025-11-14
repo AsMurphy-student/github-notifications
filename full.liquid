@@ -13,7 +13,7 @@
       {% for message in data %}
       <tr>
         <td><span class="meta"><span class="index">{{ forloop.index }}</span></span></td>
-        <td><span class="label">{{ message.subject.title }}</span></td>
+        <td><span class="label label--medium" data-clamp='1'>{{ message.subject.title }}</span></td>
         <td><span class="label label--small">{{ message.repository.full_name }}</span></td>
         <td><span class="label label--small">{{ message.subject.type }}</span></td>
       </tr>
