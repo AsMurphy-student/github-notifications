@@ -4,10 +4,12 @@ no_screen_padding: 'no'
 dark_mode: 'no'
 static_data: ''
 polling_verb: get
+framework_version: 2.3.7
+serverless_language: ''
 polling_url: https://api.github.com/notifications?all={{ showall }}
 polling_headers: authorization=token {{ token }}
 polling_body: ''
-id: 179266
+id: 179558
 custom_fields:
 - keyname: token
   field_type: password
